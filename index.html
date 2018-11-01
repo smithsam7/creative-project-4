@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <script src="main.js"></script>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>UV index info</title>
+
+</head>
+
+<body>
+    <div class="" style = "display:inline-block; padding-left:25px"><h1 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>UV info</strong></h1><h4>stuff</h4></div></div></div>
+    <div class="container" ng-app="myApp" ng-controller="mainCtrl">
+        <br><br><br>
+        <div style="text-align:center">
+            <form name="uv_form" ng-submit="Update(uv_form)">
+                <p>&nbsp &nbsp &nbsp Latitude: &nbsp   
+                <input placeholder='ex. 40.3563' ng-model='uv_form.lat' />
+                &nbsp &nbsp &nbsp Longitude: &nbsp 
+                <input placeholder='ex. -111.7325' ng-model='uv_form.long' />
+                &nbsp &nbsp &nbsp Elevation: &nbsp 
+                <input placeholder='ex. 100' ng-model='uv_form.ele' />
+                <br><br><br>
+                <input type="submit" value="   Get data   " /></p>
+            </form>
+        </div>
+       <div class="uvResult" ng-repeat = "x in resultList">
+                <h4>{{x.level}}</h4> <p>{{x.category}}</p>
+        </div>
+
+    </div>
+</body>
