@@ -8,12 +8,20 @@ router.get('/', function(req, res, next) {
   res.sendFile('index.html', {root: 'public'});
 });
 
-router.get('/owl', function(req, res, next) {
-    var url = "https://api.openuv.io/api/v1/uv?lat=";
-    console.log(url);
-    url += req.query['q'];
-    url += "?format=json";
-    request(url).pipe(res);
+var options = { method: 'GET',
+ url: 'https://api.openuv.io/api/v1/uv',
+ qs: { lat: '-33.34', lng: '115.342', dt: '2018-01-24T10:50:52.283Z' },
+ headers: 
+  { 'content-type': 'application/json',
+    'x-access-token': '000e9abbae7bf50afc5e711f76a0801a' } };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
 });
 
+
 module.exports = router;
+
+
